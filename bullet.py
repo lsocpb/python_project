@@ -6,7 +6,8 @@ class Bullet(Sprite):
     """Class to bullet management"""
 
     def __init__(self, ai_settings, screen, ship):
-        super().__init__()
+
+        super(Bullet, ship).__init__()
         self.screen = screen
 
         self.rect = pg.Rect(0, 0, ai_settings.bullet_width,
@@ -22,6 +23,7 @@ class Bullet(Sprite):
     def update(self):
         self.y -= self.speed_factor
         self.rect.y = self.y
+
 
     def draw_bullet(self):
         pg.draw.rect(self.screen, self.color, self.rect)
